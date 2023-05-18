@@ -1,11 +1,13 @@
 import React from 'react'
 import axios from "axios"
 import { useNavigate } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import { useState, useEffect } from 'react'
 import "../styles/register.css"
 import pngemail from "../img/email.png"
 import pngpassword from "../img/password.png"
 import pngname from "../img/name.png"
+
 
 const Register = () => {
 
@@ -15,7 +17,7 @@ const Register = () => {
       const [email, setEmail] = useState("")
       const [password, setPassword] = useState("")
     
-      function tryToLogin () { 
+      function tryToRegister () { 
         
        
         const newUserToBeRegistered = { 
@@ -24,7 +26,12 @@ const Register = () => {
             password: password
         }
          axios.post("http://localhost:4000/register", newUserToBeRegistered)
-               .then((res) => console.log(res.data))
+            .then((res) => { 
+                console.log(res.data)
+                setTimeout(() => { 
+                 navigate("/login")
+                }, 1500)
+            })
                .catch(err => console.log(err))
     }
       
@@ -68,16 +75,17 @@ const Register = () => {
 
 
     
-              <button  onClick={() => tryToLogin()}> Registrarme</button>
+              <button type='button'  onClick={() => tryToRegister()}> Registrarme</button>
 
               <p>
                 Ya tienes una cuenta?{" "}
-                <b onClick={() => navigate("/login")}>Inicia Sesión!</b>
+               <Link to={"/login"}> <b>Inicia Sesión!</b></Link>
               </p>
 
             </form> 
             
           </div>
+
          
         </>
       );

@@ -22,15 +22,15 @@ export const getUserById = async (req, res) => {
 
 export const registerUser = async (req, res) => { 
 
-   const {name, email, password} = req.body;     
-   console.log(req.body)                                                             //Te va a llegar esto en el request
+   const {name, email, password} = req.body;         
+   console.log(req.body)                                                                                   //Te va a llegar esto en el request
    await User.findOne({email}).then((user) => {                                                           //Primero busca en la DB si encontras el mail ya registrado y despues..
-       if(user) {                                                                                     //si lo encontras
+       if(user) {                                                                                        //si lo encontras
         return res.json({Mensaje: "Ya existe un usuario registrado con ese correo electronico"})        //devolveme que ya existe
        } else if (!name || !email || !password) {                                                      //si se quiere registrar sin ingresar sus datos
         return res.json({Mensaje: "Faltan datos para poder registrarte"})                             //devolveme que faltan los datos
        } else {        
-        console.log(req.body)                                                                              //y si no lo encontraste
+        console.log(req.body)                                                                        //y si no lo encontraste
         bcrypt.hash(password, 10, (err, contraseñaHasheada) => {                                    //hashea la contraseña
             if(err) res.json({err})                                                                //si hay algun error devolveme el error
             else {                                                                                //y sino
@@ -39,8 +39,8 @@ export const registerUser = async (req, res) => {
                     email: email,
                     password: contraseñaHasheada
                 })
-                newUserToBeRegistered.save().then((user) => {                                    //guardame en la db el usuario nuevo y despues
-                    res.json({Mensaje: "Usuario creado correctamente", user})                    //devolveme un mensaje para avisarme que ya esta creado
+                newUserToBeRegistered.save().then((user) => {                                 //guardame en la db el usuario nuevo y despues
+                    res.json({Mensaje: "Usuario creado correctamente", user})                //devolveme un mensaje para avisarme que ya esta creado
                 })
                 .catch(err => console.log(err))
             }
@@ -53,18 +53,24 @@ export const registerUser = async (req, res) => {
     export const loginUser = async (req, res) => {
         const { email, password } = req.body;                                     //Te va a llegar esto en el request
       
-        try {                                                                    //Intenta
-          let user = await User.findOne({ email });                              //busca en la db ese correo que te llego
+        try {                                                                    //Intenta primero
+          let user = await User.findOne({ email });                              //buscar en la db ese correo que te llego
       
           if (!user) {                                                           //si no encontraste el correo
             throw new Error("El usuario no está registrado");                    //avisame que no esta registrado
           }
       
-          bcrypt.compare(password, user.password).then((correct) => {            //si no tenes por que avisarme nada, significa que lo encontraste, asique comparame las contraseñas, la que llego y la guardado
-            if (correct) {                                                       //el compare devuelve una promesa
-              res.json({ mensaje: "Ingresado correctamente" });                  //asique si es correcta
+         
+           bcrypt.compare(password, user.password).then((correct) => {            //si no tenes por que avisarme nada, significa que lo encontraste, asique comparame las contraseñas, la que llego y la guardado
+            if (correct) {                                                        //asique, como "compare" devuelve una promesa, .then
+              const {id, name } = user;                                           //crea un objeto que va a ser la respuesta con el id DE MONGODB y el nombre del usuario                                        
+              res.json({ mensaje: "Ingresado correctamente",                      //devolveme en json, dos cosas como respuesta: Un mensajito
+              user: {                                                             //y tmb devolveme como respuesta el id y el nombre del usuario que entro. El ID es el ID de mongodb.
+                id: id,
+                name: name       
+              } });               
             } else {  
-              res.json({ mensaje: "Contraseña incorrecta" });                    //y si es incorrecta
+              res.json({ mensaje: "Contraseña incorrecta" });                    //y si es incorrecta devolveme esto.
             }
           });
         } catch (error) {
