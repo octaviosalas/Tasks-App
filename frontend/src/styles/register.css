@@ -149,3 +149,7 @@ b:hover {
         background-color: #4235d6;
       }
     
+.user-created { 
+  color:  #5c51d7;
+  font-size: 12px;
+}

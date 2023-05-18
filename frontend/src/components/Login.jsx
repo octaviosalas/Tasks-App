@@ -16,6 +16,7 @@ const Login = ({}) => {
 
     const [email, setEmail] = useState("")
     const [password, setPassword] = useState("")
+    const [load, setLoad ] = useState(false)
 
 
     function tryToLogin() { 
@@ -27,11 +28,12 @@ const Login = ({}) => {
         axios.post("http://localhost:4000/login", dataUser)
              .then(({data}) => {                               //la res de la promesa va en {} por que es una respuesta en json. A la cual accedo con "data".
                 console.log(data)
+                setLoad(true)
                 setTimeout(() => { 
                     navigate(`/welcome/${data?.user.id}`)      //como mi ruta devuelve un json llamado user que tiene "id" y "name", y a ese json accedo con "data". Le digo que me enlace el "data.user.id" a la ruta welcome.
                 },1000)
              })
-             .catch((err) => console.log(err))
+             .catch((err) => alert(err))
     }
 
   return (
@@ -63,11 +65,11 @@ const Login = ({}) => {
 
 
     
-              <button type='button' onClick={() => tryToLogin()} >Iniciar Sesion</button>
+              <button type='button' onClick={() => tryToLogin()} >{load ? "Ingresando" : "Iniciar Sesion"} </button>
 
               <p>
                 Has olvidado tu contraseña?{" "}
-               <Link to={"/login"}> <b>Recuperar Contraseña</b></Link>
+               <Link to={"/login"}><b>Recuperar Contraseña</b></Link>
               </p>
 
             </form> 

@@ -17,7 +17,7 @@ const Welcome = () => {
 
   return (
     <div>
-
+    
         
         Bienvenido! {name}
 

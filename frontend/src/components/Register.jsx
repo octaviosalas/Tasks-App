@@ -16,6 +16,7 @@ const Register = () => {
       const [name, setName] = useState("")
       const [email, setEmail] = useState("")
       const [password, setPassword] = useState("")
+      const [message, setMessage] = useState("")
     
       function tryToRegister () { 
         
@@ -26,11 +27,13 @@ const Register = () => {
             password: password
         }
          axios.post("http://localhost:4000/register", newUserToBeRegistered)
-            .then((res) => { 
-                console.log(res.data)
+            .then(({data}) => { 
+                console.log({data})
+                setMessage(data.Mensaje) //data.mensaje seria la respuesta de mi controlador, que tiene un json, con la propiedad mensaje, que devuelve "creado correctamente"
+                console.log(message)
                 setTimeout(() => { 
                  navigate("/login")
-                }, 1500)
+                }, 2500)
             })
                .catch(err => console.log(err))
     }
@@ -81,6 +84,8 @@ const Register = () => {
                 Ya tienes una cuenta?{" "}
                <Link to={"/login"}> <b>Inicia Sesión!</b></Link>
               </p>
+
+               <b><p className='user-created'>{message}</p></b>
 
             </form> 
             
