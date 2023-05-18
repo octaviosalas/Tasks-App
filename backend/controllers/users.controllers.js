@@ -22,13 +22,15 @@ export const getUserById = async (req, res) => {
 
 export const registerUser = async (req, res) => { 
 
-   const {name, email, password} = req.body;                                                                //Te va a llegar esto en el request
+   const {name, email, password} = req.body;     
+   console.log(req.body)                                                             //Te va a llegar esto en el request
    await User.findOne({email}).then((user) => {                                                           //Primero busca en la DB si encontras el mail ya registrado y despues..
-       if(user) {                                                                                        //si lo encontras
+       if(user) {                                                                                     //si lo encontras
         return res.json({Mensaje: "Ya existe un usuario registrado con ese correo electronico"})        //devolveme que ya existe
        } else if (!name || !email || !password) {                                                      //si se quiere registrar sin ingresar sus datos
         return res.json({Mensaje: "Faltan datos para poder registrarte"})                             //devolveme que faltan los datos
-       } else {                                                                                      //y si no lo encontraste
+       } else {        
+        console.log(req.body)                                                                              //y si no lo encontraste
         bcrypt.hash(password, 10, (err, contraseñaHasheada) => {                                    //hashea la contraseña
             if(err) res.json({err})                                                                //si hay algun error devolveme el error
             else {                                                                                //y sino
