@@ -42,6 +42,8 @@ const Register = () => {
   return (
 
         <>
+          
+
           <div className="formContainer">
 
             <h3>Bienvenido a la pagina</h3>
