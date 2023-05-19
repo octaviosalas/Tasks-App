@@ -3,10 +3,10 @@ import Task from "../models/tasks.js"
 
 export const saveTaskInDb = async (req, res) => { 
  
-    const {title, description, date, schedule, idtask} = req.body;
+    const {title, description, date, schedule, idtask, iduser} = req.body;
   
     try { 
-       const newTask = new Task ({title, description, date, schedule, idtask})
+       const newTask = new Task ({title, description, date, schedule, idtask, iduser})
        await newTask.save()
        res.send("Tarea almacenada en la base de datossss")
        console.log(req.body)

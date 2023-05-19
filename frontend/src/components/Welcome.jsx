@@ -20,7 +20,7 @@ const Welcome = () => {
 
   return (
     <div>
-      <Navbar/>
+      <Navbar userid={id}/>
         <div className='div-main-welcome'>
             <p className='welcome-p'>Bienvenido! {name}</p> 
         </div>

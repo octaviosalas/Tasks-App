@@ -1,5 +1,6 @@
 import React, {useRef} from 'react'
 import { useState, useEffect } from 'react'
+import {useParams} from "react-router"
 import axios from "axios"
 import uniqid from "uniqid"
 import "../styles/createtask.css"
@@ -8,6 +9,7 @@ import Navbar from './NavBar'
 
 const CreateTask = () => {
 
+    const {userid} = useParams()
     const formRef = useRef();  
 
     const [title, setTitle] = useState("") 
@@ -15,14 +17,20 @@ const CreateTask = () => {
     const [date, setDate] = useState("") 
     const [schedule, setSchedule] = useState("") 
 
+    useEffect(() => { 
+        
+    }, [])
+
     function saveTaskInDb() { 
        const taskToSave = { 
           title: title,
           description: description,
           date: date,
           schedule: schedule,
-          idtask: uniqid()
+          idtask: uniqid(),
+          iduser: userid
        }
+       console.log(userid)
        axios.post("http://localhost:4000/saveNewTask", taskToSave)
             .then((res) => console.log(res.data), console.log("AAAAAAAAAAAA"), formRef.current.reset() )
             .catch((err) => console.log(err))
@@ -34,7 +42,7 @@ const CreateTask = () => {
     <div>
 
         <div>
-            <Navbar />
+            <Navbar/>
         </div>
           <div className='a-div'>
 

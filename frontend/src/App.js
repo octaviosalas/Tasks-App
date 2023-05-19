@@ -21,7 +21,7 @@ function App() {
                   <Route path="/pendingTasks" element={<PendingTasks />}></Route>     
                   <Route path="/allTasks" element={<AllTasks />}></Route>    
                   <Route path="/finishedTasks" element={<FinishedTasks />}></Route>  
-                  <Route path='/createTask' element={<CreateTask/>}></Route>
+                  <Route path='/createTask/:userid' element={<CreateTask/>}></Route>
               </Routes>
 
 

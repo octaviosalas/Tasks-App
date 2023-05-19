@@ -22,6 +22,10 @@ const taskSchema = mongoose.Schema( {
         type: String,
         required: true
     },
+    iduser: { 
+        type: String,
+        required: true
+    }
 
 
 })
