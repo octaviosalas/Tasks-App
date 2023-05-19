@@ -1,6 +1,9 @@
 import React, { useEffect, useState } from 'react'
 import {useParams} from "react-router"
 import axios from "axios"
+import Navbar from './NavBar'
+import "../styles/welcome.css"
+import CreateTask from './CreateTask'
 
 const Welcome = () => {
 
@@ -17,10 +20,12 @@ const Welcome = () => {
 
   return (
     <div>
-    
+      <Navbar/>
+        <div className='div-main-welcome'>
+            <p className='welcome-p'>Bienvenido! {name}</p> 
+        </div>
         
-        Bienvenido! {name}
-
+    
     </div>
   )
 }

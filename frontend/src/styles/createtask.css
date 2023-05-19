@@ -1,0 +1,82 @@
+
+.a-div {
+    background-color: white;
+    border-radius: 8px;
+    width: 90%; /* Ajusta el ancho del formulario según tus necesidades */
+    margin: 0 auto; /* Centra el formulario horizontalmente */
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centra los elementos verticalmente */
+    gap: 25px;
+  }
+
+  form {
+    width: 100%;
+    max-width: 500px; /* o cualquier otro valor deseado */
+  }
+  
+
+  input[type="time"],
+input[type="date"] {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+  .title-form {
+    font-size: 16px; /* Aumenta el tamaño de la fuente del título */
+    font-weight: bold;
+    color: #2f2f2f;
+  }
+  
+  .inpt {
+    border: none;
+    font-weight: bold;
+    background-color: #ececec;
+    font-size: 16px; /* Aumenta el tamaño de la fuente del input */
+    color: #2f2f2f;
+    padding: 10px; /* Aumenta el padding para dar más espacio al input */
+    width: 100%; /* Hace que el input ocupe todo el ancho disponible */
+  }
+  
+  .text-area-inpt {
+    border: none;
+    font-weight: bold;
+    background-color: #ececec;
+    font-size: 16px; /* Aumenta el tamaño de la fuente del textarea */
+    color: #2f2f2f;
+    padding: 10px; /* Aumenta el padding para dar más espacio al textarea */
+    width: 100%; /* Hace que el textarea ocupe todo el ancho disponible */
+    resize: vertical; /* Permite redimensionar verticalmente el textarea */
+  }
+  
+  .b-div {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centra los elementos verticalmente */
+    gap: 25px;
+    width: 100%; /* Hace que los elementos ocupen todo el ancho disponible */
+  }
+  
+  .iter-div {
+    width: 100%; /* Hace que los elementos ocupen todo el ancho disponible */
+  }
+  
+  .btn-save {
+    background-color: #6358dc;
+    border: none;
+    cursor: pointer;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 8px;
+    transition-duration: 0.3s;
+    font-weight: 700;
+    font-size: 16px;
+  }
+  
+  .btn-save:hover {
+    background-color: #4235d6;
+  }

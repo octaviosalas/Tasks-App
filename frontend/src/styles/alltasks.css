@@ -1,0 +1,10 @@
+.c {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+  
+  }
+
+.d{ 
+    margin: 40px;
+  }

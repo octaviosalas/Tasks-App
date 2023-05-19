@@ -1,0 +1,96 @@
+.gral {
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 20px;
+    margin-bottom: 20px;
+    margin: 50px;
+  }
+  
+  .contenedor-title {
+    margin-bottom: 10px;
+    text-align: center;
+  }
+  
+  .tituloo-task {
+    font-size: 18px;
+    font-weight: bold;
+  }
+  
+  .cont-description {
+    margin-bottom: 10px;
+  }
+  
+  .descrip-task {
+    font-size: 16px;
+    width: 100%;
+    height: 80px;
+  }
+  
+  .cont-date-schedule {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+  }
+  
+  .date-task,
+  .schedule-task {
+    font-size: 14px;
+  }
+  
+  .cont-delete-edit {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+  }
+  
+  .btn-delete,
+  .btn-edit {
+    padding: 6px 10px;
+    border: none;
+    border-radius: 5px;
+    font-size: 14px;
+    cursor: pointer;
+  }
+  
+  .task-button {
+    padding: 6px 10px;
+    border: none;
+    border-radius: 5px;
+    background-color: #007bff;
+    color: #fff;
+    font-size: 14px;
+    cursor: pointer;
+  }
+  
+  .ok-img {
+    width: 50px;
+    height: 50px;
+    margin-left: 115px;
+  }
+
+  .cont-delete-edit {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+  }
+  
+  .btn-delete { 
+    padding: 4px 8px;
+    width: 100px;
+    margin-right: 5px;
+    border: none;
+    border-radius: 5px;
+    font-size: 12px;
+    cursor: pointer;
+  }
+
+  .btn-edit {
+    padding: 4px 8px;
+    width: 100px;
+    margin-right: 5px;
+    border: none;
+    border-radius: 5px;
+    font-size: 12px;
+    cursor: pointer;
+  }
