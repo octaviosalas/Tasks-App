@@ -1,12 +1,6 @@
-.c {
+.d { 
     display: flex;
     flex-wrap: wrap;
     justify-content: flex-start;
-    margin-top: 400px;
 
-
-  }
-
-.d{ 
-    margin: 40px;
-  }
+}

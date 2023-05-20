@@ -5,11 +5,14 @@ import axios from "axios"
 import uniqid from "uniqid"
 import "../styles/createtask.css"
 import Navbar from './NavBar'
+import { useContext } from 'react'
+import { UserContext } from  '../store/user-context.js';
 
 
 const CreateTask = () => {
 
-    const {userid} = useParams()
+    const userContext = useContext(UserContext)
+    const userid = userContext.userId
     const formRef = useRef();  
 
     const [title, setTitle] = useState("") 
@@ -18,7 +21,7 @@ const CreateTask = () => {
     const [schedule, setSchedule] = useState("") 
 
     useEffect(() => { 
-        
+        console.log(userContext.userId)
     }, [])
 
     function saveTaskInDb() { 

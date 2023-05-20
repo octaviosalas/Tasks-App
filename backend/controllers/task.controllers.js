@@ -18,8 +18,9 @@ export const saveTaskInDb = async (req, res) => {
 
 
   export const showingTasksInDb = async (req, res) => { 
+    const { userId } = req.params;
     try {
-      const docs = await Task.find({})
+      const docs = await Task.find({ iduser: userId });
        res.send(docs)
        console.log(docs) 
     } catch (err) {
@@ -28,10 +29,6 @@ export const saveTaskInDb = async (req, res) => {
     }
 
 }  
-
-
-
-
 
 
 export const deleteTaskInDb =  async (req, res) => { 

@@ -23,8 +23,8 @@ const taskSchema = mongoose.Schema( {
         required: true
     },
     iduser: { 
-        type: String,
-        required: true
+        type: String
+      
     }
 
 

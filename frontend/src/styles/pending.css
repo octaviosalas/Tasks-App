@@ -1,3 +1,5 @@
 .e { 
-    display: inline-flex;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
 }

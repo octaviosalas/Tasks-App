@@ -4,7 +4,7 @@ import {saveTaskInDb, showingTasksInDb, deleteTaskInDb, updateTaskInDb} from "..
 
 tasksRoutes.post("/saveNewTask", saveTaskInDb)
 
-tasksRoutes.get("/getTasks", showingTasksInDb)
+tasksRoutes.get("/getTasks/:userId", showingTasksInDb)
 
 //tasksRoutes.post("/searchSpecificTask", searchById)
 

@@ -8,6 +8,8 @@
     z-index: 999;
     padding: 10px 20px;
   }
+
+  #inicio { text-decoration: underline;}
   
   .conteiner-nav {
     display: flex;

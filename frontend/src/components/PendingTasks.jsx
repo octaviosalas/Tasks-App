@@ -1,17 +1,20 @@
 import React, { useEffect, useState } from 'react'
 import axios from 'axios'
-import StructureForTasks from './StructureForTasks'
 import Navbar from './NavBar'
 import TaskStructure from './TaskStructure'
 import "../styles/pending.css"
+import { useContext } from 'react'
+import { UserContext } from  '../store/user-context.js';
 
 
 const PendingTasks = () => {
 
     const [taskToFinish, setTaskToFinish] = useState([])
+    const userContext = useContext(UserContext)
+    const idContextUser = userContext.userId
    
      useEffect(() => { 
-       axios.get("http://localhost:4000/getTasks")
+       axios.get(`http://localhost:4000/getTasks/${idContextUser}`)
             .then((res) => { 
                  const docs = res.data
                  const taskPend = docs.filter(task => task.done === false)
