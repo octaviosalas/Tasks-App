@@ -4,6 +4,7 @@ import TaskStructure from './TaskStructure'
 import { useContext } from 'react'
 import { UserContext } from  '../store/user-context.js';
 import "../styles/finished.css"
+import Navbar from './NavBar';
 
 const FinishedTasks = () => {
 
@@ -21,9 +22,16 @@ const FinishedTasks = () => {
      }, [])
 
   return (
-    <div className='d'>
+
+    <div>
+
+      <Navbar />
+     <div className='d'>
          {TaskFinished.map((t) => <TaskStructure task={t}/>)}
+       </div>
     </div>
+
+  
   )
 }
 

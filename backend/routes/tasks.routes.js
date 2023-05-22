@@ -1,14 +1,14 @@
 import express  from "express";
 const tasksRoutes = express.Router()
-import {saveTaskInDb, showingTasksInDb, deleteTaskInDb, updateTaskInDb} from "../controllers/task.controllers.js"
+import {saveTaskInDb, showingTasksInDb, deleteTaskInDb, updateTaskInDb, searchById, editTask} from "../controllers/task.controllers.js"
 
 tasksRoutes.post("/saveNewTask", saveTaskInDb)
 
 tasksRoutes.get("/getTasks/:userId", showingTasksInDb)
 
-//tasksRoutes.post("/searchSpecificTask", searchById)
+tasksRoutes.post("/searchSpecificTask", searchById)
 
-//tasksRoutes.post("/modifiedTask", editTask)
+tasksRoutes.post("/modifiedTask", editTask)
 
 tasksRoutes.post("/deleteTask", deleteTaskInDb)
 

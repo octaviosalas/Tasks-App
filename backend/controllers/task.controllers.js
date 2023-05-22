@@ -1,4 +1,5 @@
 import Task from "../models/tasks.js"
+import mongoose from "mongoose"
 
 
 export const saveTaskInDb = async (req, res) => { 
@@ -54,3 +55,47 @@ export const updateTaskInDb = async (req, res) => {
       res.send(err)
    }
 }
+
+
+
+
+export const searchById = async (req, res) => { 
+  try {
+     const taskSearch = await Task.find({idtask: req.body.idtask})
+     res.send(taskSearch)
+  } catch (error) {
+    res.send(error)
+  }
+}
+
+
+export const editTask = async (req, res) => { 
+  try {
+    console.log("Holaa");
+    console.log(req.body);
+    await Task.findOneAndUpdate({ idtask: req.body.idtask }, { 
+      title: req.body.title,
+      description: req.body.description,
+      schedule: req.body.schedule,
+      iduser: req.body.iduser
+    })
+     res.status(200).send("Tarea editada correctamente!");
+  } catch (error) {
+     res.status(500).send(error);
+  }
+}
+
+/*
+export const editTask = async (req, res) => { 
+    try {
+       await Task.findByIdAndUpdate({idtask: req.body.idtask}, { 
+        title: req.body.title,
+        description: req.body.description,
+        date: req.body.date,
+        schedule: req.body.schedule
+       })
+       res.send("Tarea editada")
+    } catch (error) {
+       res.send(error)
+    }
+} */

@@ -5,6 +5,7 @@ import TaskStructure from './TaskStructure'
 import "../styles/alltasks.css"
 import { useContext } from 'react'
 import { UserContext } from  '../store/user-context.js';
+import Navbar from './NavBar'
 
 
 const AllTasks = () => {
@@ -28,11 +29,17 @@ const AllTasks = () => {
     }, [])
 
   return (
-    <div className='c'>
+
+    <div>
+
+      <Navbar />
+           <div className='c'>
        
-        {taskSaved.map((t) => <TaskStructure  task={t}/>)}
-    
+       {taskSaved.map((t) => <TaskStructure  task={t}/>)}
+   
+          </div>
     </div>
+ 
   )
 }
 

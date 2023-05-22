@@ -8,6 +8,7 @@ import PendingTasks from "./components/PendingTasks";
 import AllTasks from "./components/AllTasks";
 import FinishedTasks from "./components/FinishedTasks";
 import { UserProvider } from './store/user-context.js';
+import EditTask from "./components/EditTask";
 
 function App() {
   return (
@@ -23,6 +24,7 @@ function App() {
                   <Route path="/getTasks/:userId" element={<AllTasks />}></Route>    
                   <Route path="/finishedTasks/:userId" element={<FinishedTasks />}></Route>  
                   <Route path='/createTask/:userid' element={<CreateTask/>}></Route>
+                  <Route path= "/editar/:idtask" element={<EditTask />}></Route>
               </Routes>
 
        </UserProvider>
